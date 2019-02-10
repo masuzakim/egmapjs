@@ -17,6 +17,22 @@ window.onload = function() {
 	map.panTo([ 35.930667,136.185667 ]) // サンドーム福井
 	map.addIcon(35.930667,136.185667, "サンドーム福井")
 	
+		var current = map.addIcon(0, 0, "現在地", "icon-walking.png", 64, 64)
+
+	navigator.geolocation.watchPosition(function(gpos) {
+
+		const pos = [ gpos.coords.latitude, gpos.coords.longitude ]
+
+		current.setLatLng(pos)
+
+		map.panTo(pos)
+
+	}, function() {
+
+		alert("現在位置に取得に失敗！")
+
+	})
+	
 	var query = `
 
 		prefix ic: <http://imi.go.jp/ns/core/rdf#>
