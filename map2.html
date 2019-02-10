@@ -17,6 +17,17 @@ window.onload = function() {
 	map.setZoom(16)
 	map.panTo([ 35.943560,136.188917 ]) // 鯖江駅
 	map.addIcon(35.943560,136.188917, "鯖江駅")
+	var arys = [
+		[35.943560,136.188917],
+		[35.944571,136.186228],
+		];
+	
+	for( var ary of arys) {
+		map.addIcon( ary[0], ary[1], "hana","Icon-megane-png", 64 )
+	}
+	
+		
+	
 }
 
 </script>
